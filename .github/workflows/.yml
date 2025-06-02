@@ -1,0 +1,24 @@
+name: : CI pipeline
+
+on: 
+    push:
+        branches: [main]
+
+jobs: 
+    Test-and-build:
+        runs-on: windows-latest
+        steps:
+            - name: Repository'larni yuklash
+              uses: action/chekout/@v4
+
+            - name: node_modules'ni yulash
+              uses: npm install
+            
+            - name: Test buyrig'ini ishga tushurish
+              uses: npm run test
+
+            - name: Build qilish
+              uses: npm run  build
+    
+        
+
