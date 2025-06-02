@@ -1,24 +1,26 @@
-name:  CI pipeline
+name: CI pipeline
 
 on: 
-    push:
-        branches: [main]
+  push:
+    branches: [main]
 
 jobs: 
-    Test-and-build:
-        runs-on: windows-latest
-        steps:
-            - name: Repository'larni yuklash
-              uses: action/chekout/@v4
+  Test-and-build:
+    runs-on: windows-latest
+    steps:
+      - name: Repository'ni yuklash
+        uses: actions/checkout@v4
 
-            - name: node_modules'ni yulash
-              uses: npm install
-            
-            - name: Test buyrig'ini ishga tushurish
-              uses: npm run test
+      - name: Node.js o'rnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-            - name: Build qilish
-              uses: npm run  build
-    
-        
+      - name: npm install
+        run: npm install
 
+      - name: Test buyrug'ini ishga tushurish
+        run: npm run test
+
+      - name: Build qilish
+        run: npm run build
