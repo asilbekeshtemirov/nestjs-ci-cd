@@ -14,5 +14,5 @@ jobs:
             - name: node_modules
               run: npm install
 
-            - name: Build qilish
+            - name: build qilish
               run: npm run build
